@@ -2,7 +2,7 @@
 ul{list-style: none;}
 a{text-decoration: none; color: black;}
 body{
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 header{
     width: 1274px;
@@ -63,9 +63,46 @@ header{
     height: 300px;
     border-bottom: 2px solid #ddd;
 }
+section{
+    position: relative;
+}
 section ul{
     display: flex;
 }
 section ul li img{
+    position: absolute;
     width: 1946px;
 }
+.box{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+.next_box{
+    top: 350px;
+    right: 250px;
+    background: url(../img/next.png)no-repeat center center;
+}
+.prev_box{
+    top: 350px;
+    left: 250px;
+    background: url(../img/prev.png)no-repeat center center;
+}
+
+.s1.on {
+    opacity: 1;         
+    z-index: 1;        
+}
+
+.s2.on {
+    opacity: 1;          
+    z-index: 1;         
+}
+/* .s1:not(.on),
+.s2:not(.on) {
+    opacity: 0;          
+    z-index: 0;       
+} */
+.s{transition: all 0.3s;}
