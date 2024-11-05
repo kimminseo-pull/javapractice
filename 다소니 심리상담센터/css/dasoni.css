@@ -100,9 +100,9 @@ section ul li img{
     opacity: 1;          
     z-index: 1;         
 }
-/* .s1:not(.on),
+.s1:not(.on),
 .s2:not(.on) {
     opacity: 0;          
     z-index: 0;       
-} */
-.s{transition: all 0.3s;}
+}
+.s1,.s2{transition: all 0.3s;}
