@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiper연습</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style>
+        .swiper {
+                /* background-color: #ccc; */
+                width: 100%;
+                height: 500px;
+                }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .swiper-pagination-bullet-active{
+            background: red;
+            width: 16px;
+        }
+        .bg1{background: url(img/b1.jpg)no-repeat center/cover;}
+        .bg2{background: url(img/b2.jpg)no-repeat center/cover;}
+        .bg3{background: url(img/b3.jpg)no-repeat center/cover;}
+        .bg4{background: url(img/b4.jpg)no-repeat center/cover;}
+        /* .swiper-slide {
+            overflow: hidden; /* 이미지가 튀어나오지 않도록 설정 */
+        /* } */
+        .swiper-pagination-bullet{
+            transition: width 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slider main container -->
+    <div class="swiper">
+    <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+      <!-- Slides -->
+        <div class="swiper-slide bg1">
+        </div>
+        <div class="swiper-slide bg2">
+        </div>
+        <div class="swiper-slide bg3">
+        </div>
+        <div class="swiper-slide bg4">
+        </div>
+      
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  
+    <!-- If we need navigation buttons -->
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
+  
+    <!-- If we need scrollbar -->
+    <!-- <div class="swiper-scrollbar"></div>
+    </div> -->
+
+
+
+  <script>
+    const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+  autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+    pagination: {
+            el: '.swiper-pagination',
+            clickable: true, // 클릭 가능한 페이지네이션
+            // dynamicBullets: true // 동적 페이지네이션
+        }
+
+});
+  </script>
+</body>
+
+</html>
