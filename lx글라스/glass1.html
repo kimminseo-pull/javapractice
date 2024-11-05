@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Demo styles -->
+   
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: white;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .autoplay-progress {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      z-index: 10;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--swiper-theme-color);
+    }
+
+    .autoplay-progress svg {
+      --progress: 0;
+      position: absolute;
+      left: 0;
+      top: 0px;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      stroke-width: 4px;
+      stroke: var(--swiper-theme-color);
+      fill: none;
+      stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+      stroke-dasharray: 125.6;
+      transform: rotate(-90deg);
+    }
+    :root {
+    --swiper-navigation-size: 24px;
+    --swiper-theme-color: white;
+}
+.swiper-button-next {
+    top: 65%;  /* next 버튼의 개별 위치 지정 */
+    left: 40%; /* 오른쪽 위치 조정 */
+}
+
+.swiper-button-prev {
+    top: 65%;  /* prev 버튼의 개별 위치 지정 */
+    left: 37%;  /* 왼쪽 위치 조정 */
+}
+
+ul{list-style: none;}
+a{text-decoration: none; color: #000;}
+.top-content{
+    position: relative;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    width: 168px;
+    height: 32px;
+    background-image: url(img/logo.png);
+}
+nav{
+    width: 600px;
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: 13%;
+}
+nav > ul{
+    display: flex;
+    justify-content: space-between;
+}
+nav > ul > li > a{
+    display: block;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.language{
+    position: absolute;
+    top: 20px;
+    right: 50px;
+}
+.language > ul{
+    display: flex;
+}
+.swiper-slide{
+    position: relative;
+}
+.swiper-slide img{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 슬라이드 영역을 꽉 채우도록 설정 */
+}
+.textarea{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    color: #fff;
+    font-size: 2em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: all 0.3s;
+}
+.textarea.active{
+    opacity: 1;
+    transform: translate(-50%,-60%)
+}
+</style>
+</head>
+
+<body>
+
+    <div class="top-content">
+        <div class="logo"></div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">기업소개</a>
+                </li>
+                <li>
+                    <a href="#">제품소개</a>
+                </li>    
+                <li>
+                    <a href="#">자료실</a>
+                </li>   
+                <li>
+                    <a href="#">인재채용</a>
+                </li> 
+                <li>   
+                    <a href="#">고객지원</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="language">
+            <ul>
+                <li>
+                    <a href="#">KO</a>
+                </li>
+                <li>
+                    <a href="#">EN</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="img/lxglass1.jpg" alt="">
+            <div class="textarea">
+                <h2>세상을 이어주는 창<br>LX글라스가 함께합니다</h2>
+            </div>
+            </div>
+        <div class="swiper-slide">
+            <img src="img/lxglass2.jpg" alt="">
+            <div class="textarea">
+                <h2>사람,공간,환경을<br>새로운 미래와 함께합니다</h2>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <img src="img/lxglass3.jpg" alt="">
+            <div class="textarea">
+                <h2>같은 창,다른유리<br>프리미엄의 차이를 느끼다</h2>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <!-- <div class="swiper-pagination"></div> -->
+    <div class="autoplay-progress">
+      <svg viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="20"></circle>
+      </svg>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    const progressCircle = document.querySelector(".autoplay-progress svg");
+    const progressContent = document.querySelector(".autoplay-progress span");
+    
+    var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
+        on: {
+            autoplayTimeLeft(s, time, progress) {
+                progressCircle.style.setProperty("--progress", 1 - progress);
+                progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+            },
+            // 슬라이드 전환이 끝난 후 텍스트 영역 보이기
+            // slideChangeTransitionEnd: function () {
+            //     // 모든 슬라이드의 텍스트 영역 숨기기
+            //     document.querySelectorAll(".textarea").forEach(text => {
+            //         text.style.display = "none";
+            //     });
+
+            //     // 현재 활성화된 슬라이드의 텍스트만 보이게 함
+            //     let nowSlide = document.querySelector('.swiper-slide-active');
+            //     if (nowSlide) {
+            //         let activeTextArea = nowSlide.querySelector('.textarea');
+            //         if (activeTextArea) {
+            //             activeTextArea.style.display = "block";
+            //         }
+            //     }
+            // }
+            slideChangeTransitionEnd: function(){
+                document.querySelectorAll('.textarea').forEach(text => {
+                    text.classList.remove('active');
+                });
+                let nowSlide = document.querySelector('.swiper-slide-active')
+                if(nowSlide){
+                    let activeTextArea = nowSlide.querySelector('.textarea')
+                    if(activeTextArea){
+                        activeTextArea.classList.add('active')
+                    }
+                }
+            }
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded',function(){
+        let nowSlide = document.querySelector('.swiper-slide-active')
+        if(nowSlide){
+                    let activeTextArea = nowSlide.querySelector('.textarea')
+                    if(activeTextArea){
+                        activeTextArea.classList.add('active')
+                    }
+                }
+    })
+    // 페이지 로드 시 첫 번째 슬라이드의 텍스트 표시
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     let nowSlide = document.querySelector('.swiper-slide-active');
+    //     if (nowSlide) {
+    //         let activeTextArea = nowSlide.querySelector('.textarea');
+    //         if (activeTextArea) {
+    //             activeTextArea.style.display = "block";
+    //         }
+    //     }
+    // });
+</script>
+</script>
+</body>
+
+</html>

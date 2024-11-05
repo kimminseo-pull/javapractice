@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .mainbox{
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+        #todo_text{
+            width: 200px;
+            padding: 10px;
+            margin-left: 5px;
+        }
+        #todo_add{
+            padding: 10px;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            margin-left: 5px;
+        }
+        li{
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        li button{
+            background-color: #ff5c5c;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>TODO LIST</h1>
+    <div class="mainbox">
+        <input type="text" placeholder="할일을 입력하세요" id="todo_text">
+        <button id="todo_add">추가</button>
+        <ul id="todo_list"></ul>
+    </div>
+</body>
+<script>
+    let todo_text = document.getElementById('todo_text')
+    let todo_add = document.getElementById('todo_add')
+    let todo_list = document.getElementById('todo_list')
+
+    function addToDo(){
+       
+        list = todo_text.value
+
+        if(list.trim() !== '' ){
+            let li = document.createElement('li')
+            let span = document.createElement('span')
+            let button = document.createElement('button')
+            
+            span.textContent = list;
+            button.textContent = '삭제'
+            
+            li.appendChild(span)
+            li.appendChild(button)
+            todo_list.appendChild(li)
+
+            todo_text.value = ''
+
+            button.addEventListener('click',function(){
+                todo_list.removeChild(this.parentNode)
+            })
+        }
+    } 
+    todo_add.addEventListener('click',function(){
+        addToDo();
+    })
+    document.addEventListener('keydown',function(event){
+        if(event.key === 'Enter'){
+            addToDo()
+        }
+    })
+</script>
+</html>

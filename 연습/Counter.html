@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{
+            background-color: #ddd;
+        }
+        .counter{
+            margin: 100px auto;
+            width: 100px;
+            height: 200px;
+            background-color: white;
+            position: relative;
+        }
+        p{  
+            display: block;
+            width: 100%;
+            height: 170px;
+            font-size: 70px;
+            text-align: center;
+            line-height: 170px;
+        }
+        .add{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20px;
+            height: 30px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+        .minus{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+            height: 30px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter">
+        <p>0</p> <!-- 초기값 설정 -->
+        <div class="controls">
+            <div class="add">+</div>
+            <div class="minus">-</div>
+        </div>
+    </div>
+</body>
+<script>
+    let num = document.querySelector('.counter p');
+    let addBtn = document.querySelector('.add');
+    let minusBtn = document.querySelector('.minus');
+    
+    // 전역 변수로 currentNum 선언
+    let currentNum = parseInt(num.textContent);
+
+    function add() {
+        currentNum += 1; // currentNum 값을 1 증가
+        num.textContent = currentNum; // <p> 태그의 내용을 업데이트
+    }
+
+    function minus() {
+        currentNum -= 1; // currentNum 값을 1 감소
+        num.textContent = currentNum; // <p> 태그의 내용을 업데이트
+    }
+
+    addBtn.addEventListener('click', add);
+    minusBtn.addEventListener('click', minus);
+</script>
+</html>

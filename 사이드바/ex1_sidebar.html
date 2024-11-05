@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 4000px;
+        }
+        a{text-decoration: none;
+            color: black;}
+        .sidebar_btn{
+            position: absolute;
+            right: 100px;
+            bottom: 50px;
+            width: 70px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.1s;
+        }
+        .sidebar_menu{
+            position: fixed;
+            right: 80px;
+            bottom: 130px;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            background-color: white;
+            border: 2px solid #ddd;
+            display: none;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar_btn" onclick="sidebar_toggle()"></div>
+
+    <div class="sidebar_menu">
+        <a href="https://www.facebook.com/?locale=ko_KR">
+           <p>facebook</p> 
+        </a>
+        <a href="https://www.instagram.com/">
+            <p>instagram</p>
+        </a>
+    </div>
+    <script>
+        let sidebar_btn =  document.querySelector('.sidebar_btn')
+        let sidebar_menu =  document.querySelector('.sidebar_menu')
+
+        function sidebar_toggle(){
+            if(sidebar_menu.style.display === 'none'){
+                sidebar_menu.style.display = 'block'
+            }else{
+                sidebar_menu.style.display = 'none'
+            }
+        }
+
+        window.addEventListener('scroll',function(){
+            let viewheight = window.innerHeight;
+            let scrollPosition = window.scrollY;
+            let bottomSet = 750;
+
+            sidebar_btn.style.top = `${ scrollPosition +bottomSet}px`
+        })
+    </script>
+</body>
+</html>
